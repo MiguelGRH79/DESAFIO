@@ -130,17 +130,23 @@ textarea {
     margin-bottom: 2rem;
 }
 
-#textoSalida, #botonCopiar {
+#textoSalida {
+    display: none;
+    height: 760px;
+    font-size: 1rem;
+}
+
+#botonCopiar{
     display: none;
 }
 
 /* Estilos para el pie de página */
 footer {
     text-align: center;
-    padding: 1rem;
+    padding: .5rem;
     background-color: #0a3871;
     color: white;
-    margin-top: 2rem;
+    margin-top: 16rem;
 }
 
 /* Media queries para responsividad */
