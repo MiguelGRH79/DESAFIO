@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+/* Restablecer márgenes y relleno para todos los elementos */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos generales para el cuerpo de la página */
+body {
+    font-family: "Inter", sans-serif;
+    box-sizing: border-box;
+    background-color: #f4fcf3;
+    /* color de fondo alternativo: #d5d2e2 */
+    width: 1800px;
+    height: 1024px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Contenedor principal que limita el ancho máximo del contenido */
+.contenedor {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Estilos para el encabezado y el logo */
+header {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.logo {
+    position: absolute;
+    left: 40px;
+    top: 40px;
+    width: 120px;
+    height: 48px;
+}
+
+/* Disposición del contenido principal en dos columnas */
+main {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+/* Estilos para las secciones de entrada y salida de texto */
+.seccion-entrada {
+    position: absolute;
+    left: 240px;
+    top: 168px;
+    width: 577px;
+    height: 48px;
+}
+
+.seccion-salida {
+    position: absolute;
+    right: 40px;
+    top: 40px;
+    width: 400px;
+    height: 944px;    
+}
+
+/* Estilos para las áreas de texto */
+textarea {
+    width: 90%;
+    height: 700px;
+    padding: 1rem;
+    border: none;
+    border-radius: 48px;
+    background-color: transparent;
+    resize: none;
+    margin-bottom: 1rem;
+    font-size: 2rem;     
+}
+
+/* Estilos específicos para el área de texto de entrada */
+#textoEntrada {
+    position: absolute;
+    left: 240px;
+    top: 168px;
+    width: 680px;
+    height: 288px;
+    font-size: 32px;
+}
+
+/* Estilos para el marcador de posición del área de texto de entrada */
+#textoEntrada::placeholder {
+    color: #0A3871;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* Estilos para el mensaje de instrucción */
+.instruccion {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+/* Icono de exclamación en el mensaje de instrucción */
+.icono-exclamacion {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    position: absolute;
+    left: 240px;
+    top: 851px;
+}
+
+/* Texto del mensaje de instrucción */
+.instruccion p {
+    position: absolute;
+    left: 280px;
+    top: 851px;
+    width: 500px;
+    height: 18px;
+    font-size: 12px;
+    color: #495057;
+}
+
+/* Contenedor de botones */
+.botones {
+    position: absolute;
+    left: 240px;
+    top: 885px;
+    width: 680px;
+    height: 67px;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+/* Botones de encriptar y desencriptar */
+#botonEncriptar, #botonDesencriptar {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 5px;
+}
+
+/* Estilos generales para los botones de acción */
+.boton-accion {
+    padding: 0rem 1rem;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    font-size: 2rem;
+    transition: background-color 0.3s ease, transform 0.1s ease, opacity 0.3s ease;
+    flex: 1%;
+    background-color: #D8DFE8;
+    color: #0A3871;    
+}
+
+/* Estilo para botones deshabilitados */
+.boton-accion.deshabilitado {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Efecto hover solo para botones habilitados */
+.boton-accion:not(.deshabilitado):hover {
+    background-color: #0A3871;
+    color: #D8DFE8; 
+    transform: scale(1.17);    
+}
+
+/* Efecto al hacer clic solo para botones habilitados */
+.boton-accion:not(.deshabilitado):active {
+    transform: scale(0.95);
+}
+
+/* Estilos para el contenedor de resultados */
+#contenedorResultado {
+    background-color: white;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 24px 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    right: 40px;
+    top: 40px;
+    width: 400px;
+    height: 944px;
+}
+
+/* Estilos para la imagen del muñeco */
+#imagenMuneco {
+    position: absolute;
+    right: 40px;
+    top: 283px;
+    width: 336px;
+    height: 304px;
+}
+
+/* Estilos para el texto de "no mensaje" */
+#textoSinMensaje {
+    font-size: 2rem;
+    font-weight: bold;
+    position: absolute;
+    right: 40px;
+    top: 619px;
+    width: 336px;
+    height: 122px;
+}
+
+/* Estilos para el texto de instrucción */
+#textoInstruccion {  
+    color: #495057;
+    position: absolute;
+    right: 40px;
+    top: 800px;
+    width: 336px;
+    height: 48px; 
+}
+
+/* Ocultar inicialmente el área de texto de salida y el botón de copiar */
+#textoSalida, #botonCopiar {
+    display: none;
+}
+
+/* Área de texto de salida */
+#textoSalida {
+    font-size: 24px;
+    background-color: white;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* Botón para copiar el texto de salida */
+#botonCopiar {
+    position: absolute;
+    right: 40px;
+    top: 885px;
+    width: 336px;
+    height: 67px;
+    font-size: 16px;
+}
+
+/* Estilos para el pie de página */
+footer {
+    position: absolute;
+    left: 600px;
+    top: 1150px;
+    width: 800px;
+    text-align: center;
+    padding: .07rem;
+    background-color: #0a3871;
+    color: white;
+}
