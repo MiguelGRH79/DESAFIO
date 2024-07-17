@@ -99,3 +99,14 @@ botonCopiar.addEventListener('click', () => {
 // Llamar a alternarBotones al cargar la página para establecer el estado inicial de los botones
 alternarBotones();
 
+// Función para ajustar la visualización en diferentes tamaños de pantalla
+function ajustarVisualizacion() {
+    const esPantallaPequena = window.innerWidth < 768;
+    contenedorResultado.style.display = esPantallaPequena && textoSalida.style.display === 'block' ? 'none' : 'block';
+}
+
+// Escuchar cambios en el tamaño de la ventana
+window.addEventListener('resize', ajustarVisualizacion);
+
+// Llamar a ajustarVisualizacion al cargar la página
+ajustarVisualizacion();
