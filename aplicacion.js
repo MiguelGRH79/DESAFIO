@@ -5,6 +5,7 @@ const botonEncriptar = document.getElementById('botonEncriptar');
 const botonDesencriptar = document.getElementById('botonDesencriptar');
 const botonCopiar = document.getElementById('botonCopiar');
 const contenedorResultado = document.getElementById('contenedorResultado');
+const imagenMuneco = document.getElementById('imagenMuneco');
 
 // Definición de las reglas de encriptación
 const clavesEncriptacion = {
@@ -14,16 +15,6 @@ const clavesEncriptacion = {
     'o': 'ober',
     'u': 'ufat'
 };
-
-// Función para validar que el texto solo contenga minúsculas y espacios
-function validarEntrada(texto) {
-    return /^[a-z\s]*$/.test(texto);
-}
-
-// Función para verificar si hay mayúsculas o caracteres especiales
-function contieneMayusculasOEspeciales(texto) {
-    return /[A-Z]/.test(texto) || /[^a-zA-Z\s]/.test(texto);
-}
 
 // Función para encriptar el texto
 function encriptar(texto) {
@@ -45,6 +36,16 @@ function mostrarResultado(texto) {
     textoSalida.style.display = 'block';
     botonCopiar.style.display = 'block';
     textoSalida.value = texto;
+}
+
+// Función para validar que el texto solo contenga minúsculas y espacios
+function validarEntrada(texto) {
+    return /^[a-z\s]*$/.test(texto);
+}
+
+// Función para verificar si hay mayúsculas o caracteres especiales
+function contieneMayusculasOEspeciales(texto) {
+    return /[A-Z]/.test(texto) || /[^a-zA-Z\s]/.test(texto);
 }
 
 // Función para habilitar o deshabilitar los botones según el contenido del input
@@ -89,24 +90,27 @@ botonDesencriptar.addEventListener('click', () => {
     }
 });
 
-// Escucha de eventos para el botón de copiar
+// Evento para el botón de copiar
 botonCopiar.addEventListener('click', () => {
     textoSalida.select();
     document.execCommand('copy');
     alert('Texto copiado al portapapeles');
 });
 
-// Llamar a alternarBotones al cargar la página para establecer el estado inicial de los botones
-alternarBotones();
-
-// Función para ajustar la visualización en diferentes tamaños de pantalla
-function ajustarVisualizacion() {
-    const esPantallaPequena = window.innerWidth < 768;
-    contenedorResultado.style.display = esPantallaPequena && textoSalida.style.display === 'block' ? 'none' : 'block';
+// Función para ajustar la visualización según el tamaño de la pantalla
+function ajustarDiseno() {
+    if (window.innerWidth >= 768) {
+        imagenMuneco.style.display = 'block';
+    } else {
+        imagenMuneco.style.display = 'none';
+    }
 }
 
-// Escuchar cambios en el tamaño de la ventana
-window.addEventListener('resize', ajustarVisualizacion);
+// Evento para ajustar el diseño cuando se cambia el tamaño de la ventana
+window.addEventListener('resize', ajustarDiseno);
 
-// Llamar a ajustarVisualizacion al cargar la página
-ajustarVisualizacion();
+// Llamada inicial para ajustar el diseño
+ajustarDiseno();
+
+// Llamar a alternarBotones al cargar la página para establecer el estado inicial de los botones
+alternarBotones();
